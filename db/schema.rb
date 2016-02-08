@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160208043120) do
+ActiveRecord::Schema.define(version: 20160208192353) do
 
   create_table "images", force: :cascade do |t|
     t.string   "filename"
-    t.integer  "sharpness"
-    t.integer  "contrast"
-    t.integer  "brightness"
-    t.integer  "saturation"
+    t.integer  "sharpness",  default: 0
+    t.integer  "contrast",   default: 0
+    t.integer  "brightness", default: 50
+    t.integer  "saturation", default: 0
     t.integer  "iso"
     t.integer  "speed"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
 end

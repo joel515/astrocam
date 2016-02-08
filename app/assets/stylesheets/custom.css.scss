@@ -26,6 +26,7 @@ body {
 
 label {
   color: $gray-light;
+  margin-top: 5px;
 }
 
 section {
@@ -134,15 +135,19 @@ img.viewer {
   margin-right: auto;
   margin-top: 30px;
   margin-bottom: 30px;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 /* forms */
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   @include box_sizing;
+}
+
+.form-control {
   border-color: #8b391f;
   background-color: #331010;
   color: #a8b6c1;

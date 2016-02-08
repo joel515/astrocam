@@ -26,23 +26,29 @@
       class: "btn btn-ftered btn-md",
       data: { toggle: 'tooltip', placement: 'top' },
       title: 'Stop stream' %>
+    <%= link_to "<span class='glyphicon glyphicon-camera'></span> "\
+        "Capture Image".html_safe,
+      stop_path,
+      class: "btn btn-ftered btn-md pull-right",
+      data: { toggle: 'tooltip', placement: 'top' },
+      title: 'Capture image currently in viewer' %>
   </div>
   <div class="col-md-2">
     <%= form_for(@image) do |f| %>
       <%= f.label :sharpness %>
-      <%= f.number_field :sharpness, { min: -100, max: 100 } %>
+      <%= f.number_field :sharpness, { min: -100, max: 100, class: 'form-control' } %>
 
       <%= f.label :contrast %>
-      <%= f.number_field :contrast, { min: -100, max: 100 } %>
+      <%= f.number_field :contrast, { min: -100, max: 100, class: 'form-control' } %>
 
       <%= f.label :brightness %>
-      <%= f.number_field :brightness, { min: 0, max: 100 } %>
+      <%= f.number_field :brightness, { min: 0, max: 100, class: 'form-control' } %>
 
       <%= f.label :saturation %>
-      <%= f.number_field :saturation, { min: -100, max: 100 } %>
+      <%= f.number_field :saturation, { min: -100, max: 100, class: 'form-control' } %>
 
       <%= f.label :iso, "ISO" %>
-      <%= f.number_field :iso, { min: 100, max: 800, step: 100 } %>
+      <%= f.number_field :iso, { min: 100, max: 800, step: 100, class: 'form-control' } %>
     <% end %>
   </div>
 </div>
