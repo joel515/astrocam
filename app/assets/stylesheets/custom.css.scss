@@ -18,8 +18,14 @@ body {
   background-color: black;
 }
 
-div.panel-default {
-  background-color: gray-dark;
+.panel {
+  background-image: none;
+  background-color: $gray-dark;
+  border-color: $gray-light;
+}
+
+label {
+  color: $gray-light;
 }
 
 section {
@@ -137,6 +143,9 @@ input, textarea, select, .uneditable-input {
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
+  border-color: #8b391f;
+  background-color: #331010;
+  color: #a8b6c1;
 }
 
 input {

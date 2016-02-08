@@ -25,14 +25,6 @@ class Image < ActiveRecord::Base
 
   def self.running?
     pid = `ps -A | grep mjpg_streamer | grep -v "grep" | grep -v mjpg_streamer. | awk '{print $1}' | head -n 1`
-    unless pid.nil?
-      puts "mjpg_streamer is running with pid #{pid}"
-      puts "mjpg_streamer was started with the following command line"
-      puts `cat /proc/#{pid}/cmdline`
-      true
-    else
-      puts "Could not find mjpg_streamer running"
-      false
-    end
+    pid.empty? ? false : true
   end
 end

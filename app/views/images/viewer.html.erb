@@ -1,8 +1,12 @@
-<% provide(:title, "Home") %>
+<% provide(:title, "Viewer") %>
 <div class="row">
   <div class="col-md-8">
     <div class="panel panel-default">
-      <img class="viewer" src="http://192.168.1.108:8080/?action=stream">
+      <% if Image.running? %>
+        <img class="viewer" src="http://192.168.1.108:8080/?action=stream">
+      <% else %>
+        <%= image_tag "m104_01_640x480.jpg", class: "viewer" %>
+      <% end %>
     </div>
     <%= link_to "<span class='glyphicon glyphicon-refresh'></span> "\
         "Refresh".html_safe,
