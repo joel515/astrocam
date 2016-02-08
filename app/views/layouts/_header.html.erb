@@ -1,0 +1,21 @@
+<header>
+  <div class="container">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "astrocam", root_path, id: "app-title" %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to "#" do %>
+            <span class="glyphicon glyphicon-list"></span> List
+          <% end %>
+        </li>
+        <li>
+          <%= link_to '#' do %>
+            <span class="glyphicon glyphicon-plus"></span> Create
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

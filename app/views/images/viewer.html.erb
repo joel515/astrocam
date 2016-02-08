@@ -1,0 +1,44 @@
+<% provide(:title, "Home") %>
+<div class="row">
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <img class="viewer" src="http://192.168.1.108:8080/?action=stream">
+    </div>
+    <%= link_to "<span class='glyphicon glyphicon-refresh'></span> "\
+        "Refresh".html_safe,
+      request.original_url,
+      class: "btn btn-fteblue btn-md",
+      data: { toggle: 'tooltip', placement: 'top' },
+      title: 'Refresh page' %>
+    <%= link_to "<span class='glyphicon glyphicon-play'></span> "\
+        "Start".html_safe,
+      start_path,
+      class: "btn btn-ftegreen btn-md",
+      data: { toggle: 'tooltip', placement: 'top' },
+      title: 'Start stream' %>
+    <%= link_to "<span class='glyphicon glyphicon-stop'></span> "\
+        "Stop".html_safe,
+      stop_path,
+      class: "btn btn-ftered btn-md",
+      data: { toggle: 'tooltip', placement: 'top' },
+      title: 'Stop stream' %>
+  </div>
+  <div class="col-md-2">
+    <%= form_for(@image) do |f| %>
+      <%= f.label :sharpness %>
+      <%= f.number_field :sharpness, { min: -100, max: 100 } %>
+
+      <%= f.label :contrast %>
+      <%= f.number_field :contrast, { min: -100, max: 100 } %>
+
+      <%= f.label :brightness %>
+      <%= f.number_field :brightness, { min: 0, max: 100 } %>
+
+      <%= f.label :saturation %>
+      <%= f.number_field :saturation, { min: -100, max: 100 } %>
+
+      <%= f.label :iso, "ISO" %>
+      <%= f.number_field :iso, { min: 100, max: 800, step: 100 } %>
+    <% end %>
+  </div>
+</div>

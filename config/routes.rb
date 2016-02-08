@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  root 'images#viewer'
+  get 'start' => 'images#start'
+  get 'stop'  => 'images#stop'
+
+  resources :images
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

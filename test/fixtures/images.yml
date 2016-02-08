@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  filename: MyString
+  sharpness: 1
+  contrast: 1
+  brightness: 1
+  saturation: 1
+  iso: 1
+  speed: 1
+
+two:
+  filename: MyString
+  sharpness: 1
+  contrast: 1
+  brightness: 1
+  saturation: 1
+  iso: 1
+  speed: 1

@@ -15,6 +15,11 @@ $gray-medium-light: #eaeaea;
 
 body {
   padding-top: 90px;
+  background-color: black;
+}
+
+div.panel-default {
+  background-color: gray-dark;
 }
 
 section {
@@ -64,13 +69,13 @@ p {
   float: center;
   margin-right: 10px;
   font-size: 1.7em;
-  color: $gray-dark;
+  color: $gray-light;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 15px;
   font-weight: bold;
   &:hover {
-    color: $gray-light;
+    color: $gray-dark;
     text-decoration: none;
   }
 }
