@@ -1,13 +1,11 @@
 <% provide(:title, "Viewer") %>
+<%= form_for(setup_image(@image)) do |f| %>
 <div class="row">
   <div class="col-md-8">
-    <div class="panel panel-default">
-      <% if Image.running? %>
-        <img class="viewer" src="http://192.168.1.108:8080/?action=stream">
-      <% else %>
-        <%= image_tag "m104_01_640x480.jpg", class: "viewer" %>
-      <% end %>
+    <div class="panel panel-default" id="viewer">
+      <%= render 'stream' %>
     </div>
+
     <%= link_to "<span class='glyphicon glyphicon-refresh'></span> "\
         "Refresh".html_safe,
       request.original_url,
@@ -19,13 +17,15 @@
       start_path,
       class: "btn btn-ftegreen btn-md",
       data: { toggle: 'tooltip', placement: 'top' },
-      title: 'Start stream' %>
+      title: 'Start stream',
+      remote: true %>
     <%= link_to "<span class='glyphicon glyphicon-stop'></span> "\
         "Stop".html_safe,
       stop_path,
       class: "btn btn-ftered btn-md",
       data: { toggle: 'tooltip', placement: 'top' },
-      title: 'Stop stream' %>
+      title: 'Stop stream',
+      remote: true %>
     <%= link_to "<span class='glyphicon glyphicon-camera'></span> "\
         "Capture Image".html_safe,
       stop_path,
@@ -34,7 +34,7 @@
       title: 'Capture image currently in viewer' %>
   </div>
   <div class="col-md-2">
-    <%= form_for(@image) do |f| %>
+    <div class="panel panel-default" id="viewer-settings">
       <%= f.label :sharpness %>
       <%= f.number_field :sharpness, { min: -100, max: 100, class: 'form-control' } %>
 
@@ -46,9 +46,14 @@
 
       <%= f.label :saturation %>
       <%= f.number_field :saturation, { min: -100, max: 100, class: 'form-control' } %>
+    </div>
 
       <%= f.label :iso, "ISO" %>
-      <%= f.number_field :iso, { min: 100, max: 800, step: 100, class: 'form-control' } %>
-    <% end %>
+      <%= f.select :iso, Image::ISO_VALUES.map { |v| [v.to_s, v] }, {},
+        { class: "form-control", include_blank: '-select-' } %>
+
+      <%= f.label :speed, "Speed (&mu;s)".html_safe %>
+      <%= f.number_field :speed, { min: 1, max: 6000000, class: 'form-control' } %>
   </div>
 </div>
+<% end %>

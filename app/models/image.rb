@@ -1,6 +1,31 @@
 class Image < ActiveRecord::Base
+  validates :sharpness,  presence: true,
+                         numericality: { only_integer: true,
+                                         greater_than_or_equal_to: -100,
+                                         less_than_or_equal_to: 100 }
+  validates :contrast,  presence: true,
+                        numericality: { only_integer: true,
+                                        greater_than_or_equal_to: -100,
+                                        less_than_or_equal_to: 100 }
+  validates :brightness, presence: true,
+                         numericality: { only_integer: true,
+                                         greater_than_or_equal_to: 0,
+                                         less_than_or_equal_to: 100 }
+  validates :saturation, presence: true,
+                         numericality: { only_integer: true,
+                                         greater_than_or_equal_to: -100,
+                                         less_than_or_equal_to: 100 }
+  validates :speed,      presence: true,
+                         numericality: { only_integer: true,
+                                         greater_than_or_equal_to: 1,
+                                         less_than_or_equal_to: 6000000 }
+  validates :iso,        presence: true
 
   LIBPATH = "/usr/local/lib"
+
+  ISO_VALUES = [0, 100, 160, 200, 250, 320, 400, 500, 640, 800]
+
+  validates_inclusion_of :iso, in: ISO_VALUES
 
   def self.start_stream
     puts "Starting mjpeg_streamer..."

@@ -18,15 +18,24 @@ body {
   background-color: black;
 }
 
+#viewer {
+  background-color: $gray-dark;
+}
+
+#viewer-settings {
+  background-color: black;
+  padding-bottom: 10px;
+}
+
 .panel {
   background-image: none;
-  background-color: $gray-dark;
   border-color: $gray-light;
 }
 
 label {
   color: $gray-light;
   margin-top: 5px;
+  margin-left: 10%;
 }
 
 section {
@@ -151,6 +160,8 @@ input, textarea, select, .uneditable-input {
   border-color: #8b391f;
   background-color: #331010;
   color: #a8b6c1;
+  margin-left: 10%;
+  width: 80%
 }
 
 input {
